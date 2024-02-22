@@ -1,22 +1,23 @@
+import frutaDao from "../dao/fruta.dao.js"
 
 class FrutaService{
     async createFruta(frutaDto){
-        const{nommbre,descripcion,cantidad,precio} = frutaDto
-        return FRUTADAO.createFruta(nombre,descripcion,cantidad,precio)
+        const{nombre,descripcion,cantidad,precio} = frutaDto
+        return frutaDao.createFruta(nombre,descripcion,cantidad,precio)
     }
 
 
     async getFrutaById(id){
     
-        return FRUTADAO.getFrutaById(id)
+        return frutaDao.getFrutaById(id)
     }
 
     async updateFruta(id,updates){
-        return FRUTADAO.updateFruta(id,updates)
+        return frutaDao.updateFruta(id,updates)
     }
 
     async deleteFruta(id){
-        return FRUTADAO.deleteFruta(id)
+        return frutaDao.deleteFruta(id)
     }
     
 }

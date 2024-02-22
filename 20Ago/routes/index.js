@@ -1,14 +1,12 @@
 import express from "express";
-import frutaController from "../controller/fruta.controller";
+import FrutaController from "../controller/fruta.controller.js";
 
 
 const router = express.Router();
 
-router.get('/frutas/:id', frutaController.getFrutasById); // parametro
-router.post('/frutas', frutaController.createFrutas);
-router.put('/frutas/:id', frutaController.updateFruta);
-router.delete('/frutas/:id', frutaController.deleteFruta);
+router.get('/frutas/:id', FrutaController.getFrutasById); // parametro
+router.post('/frutas', FrutaController.createFrutas);
+router.put('/frutas/:id', FrutaController.updateFruta);
+router.delete('/frutas/:id', FrutaController.deleteFruta);
 
-export default{
-    router
-}
+export default router

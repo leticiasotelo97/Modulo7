@@ -1,10 +1,10 @@
-import frutaService from "../service/fruta.service";
+import frutaService from "../service/fruta.service.js";
 
 class FrutaController {
     async createFrutas(request,response){
         try{
             const id =await frutaService.createFruta(request.body);
-            request.status(201).json(id);
+            return response.status(201).json(id);
         }catch (error){
             console.error(error)
             return response.status(500).send('Internal Server Error')
@@ -35,7 +35,7 @@ class FrutaController {
             if(!success) {
                 return response.status(404).send('Fruta not found');
             }
-           return request.status(201).send('Fruta actualizada');
+           return response.status(201).send('Fruta actualizada');
         }catch (error){
             console.error(error)
             return response.status(500).send('Internal Server Error')
@@ -49,7 +49,7 @@ class FrutaController {
             if(!success) {
                 return response.status(404).send('Fruta not found');
             }
-           return request.status(201).send('Fruta borrada');
+           return response.status(201).send('Fruta borrada');
         }catch (error){
             console.error(error)
            return response.status(500).send('Internal Server Error')

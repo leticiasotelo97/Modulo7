@@ -1,5 +1,11 @@
 // Update with your config settings.
 
+import dotenv from 'dotenv'
+if(process.env.NODE_ENV !=='production'){
+   dotenv.config()
+}
+
+
 /**
  * @type { Object.<string, import("knex").Knex.Config> }
  */
@@ -10,8 +16,8 @@ export default {
     useNullAsDefault: true,
     connection: {
       database: 'frutas',
-      user:     'postgres',
-      password: 'Cmdsa06'
+      user:     `${process.env.DB_USER}`,
+      password: `${process.env.PASSWORD}`
     },
     pool:{
       min:2,
